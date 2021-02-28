@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="sv" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Webshop</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- <div class="error" v-if="error">
+            Error
+        </div> -->
+        <template v-for="value in products">
+            <p @click="getProducts(++value.level, value.category_name)">{{ value.name}}</p>
+        </template>
+    </div>
+    <script src="webshop.js"></script>
+</body>
+
+</html>
