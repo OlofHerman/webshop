@@ -9,6 +9,7 @@
 
 <body>
     <div id="app">
+        <button @click="firstProducts()">Reset selection</button>
         <template v-for="product in products">
             <p @click="getProducts(product)">{{ product.name}}, {{ product.category_name
                 }}
