@@ -4,6 +4,7 @@ new Vue({
     },
     data: {
         products: null,
+        currentLevel: 1,
         error: false
     },
     el: '#app',
@@ -14,8 +15,13 @@ new Vue({
                 .then(result => { this.products = result })
                 .catch(error => { console.log(error) });
         },
-        getProducts(level, category) {
-            fetch('http://localhost/getproducts.php?level=' + level + "&category=" + category)
+        getProducts(product) {
+            if (product.level < this.currentLevel) {
+                this.currentLevel = product.level;
+            } else {
+                ++this.currentLevel;
+            }
+            fetch('http://localhost/getproducts.php?level=' + this.currentLevel + "&category=" + product.category_name)
                 .then(response => response.json())
                 .then(result => {
                     this.products = result;

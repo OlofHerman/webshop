@@ -9,11 +9,10 @@
 
 <body>
     <div id="app">
-        <!-- <div class="error" v-if="error">
-            Error
-        </div> -->
-        <template v-for="value in products">
-            <p @click="getProducts(++value.level, value.category_name)">{{ value.name}}</p>
+        <template v-for="product in products">
+            <p @click="getProducts(product)">{{ product.name}}, {{ product.category_name
+                }}
+            </p>
         </template>
     </div>
     <script src="webshop.js"></script>
