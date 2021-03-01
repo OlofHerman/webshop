@@ -1,0 +1,28 @@
+version: '3'
+services:
+  php:
+    build:
+      context: ./docker
+      dockerfile: php.Dockerfile
+    container_name: webshop-php
+    volumes:
+      - './src:/var/www/html'
+    depends_on:
+      - mysql
+  nginx:
+    image: nginx:latest
+    container_name: webshop-nginx
+    ports:
+    - "8080:80"
+    volumes:
+      - './src:/var/www/html'
+      - './site.conf:/etc/nginx/conf.d/default.conf'
+    links:
+      - 'php'
+  mysql:
+    image: mysql:8
+    container_name: webshop-mysql
+    volumes:
+      - './db-scripts:/docker-entrypoint-initdb.d'
+    environment:
+      MYSQL_ROOT_PASSWORD: Losen123

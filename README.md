@@ -8,5 +8,15 @@ Currently, there is one endpoint to get product data in *getproduct.php*. It tak
 
 The client makes calls to this endpoint by the current level state and the selected product's category, and renders the webpage with the retrieved products.
 
+## Run with Docker Compose
+You can run the application locally by using the command:
+
+`docker-compose up --build`
+
+Note that you need Docker compose installed on your computer for this to work.
+
+To view the page use the URL:
+
+`http://localhost:8080/frontend/index.html`
 ### TODO
 * Implement possibility to place order for selected products

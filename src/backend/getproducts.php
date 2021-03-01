@@ -1,6 +1,8 @@
 <?php
 include_once 'database.php';
 
+header("Access-Control-Allow-Origin: {$_SERVER['HTTP_ORIGIN']}");
+
 # The query string to database
 $sql = "SELECT p.id, p.name, pl.level, pc.category_name FROM product p 
 INNER JOIN product_level pl ON p.id = pl.product_id 

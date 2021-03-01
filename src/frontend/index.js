@@ -10,7 +10,7 @@ new Vue({
     el: '#app',
     methods: {
         firstProducts() {
-            fetch('http://localhost/getproducts.php?level=' + 1)
+            fetch('http://localhost:8080/backend/getproducts.php?level=' + 1)
                 .then(response => response.json())
                 .then(result => { this.products = result })
                 .catch(error => { console.log(error) });
@@ -21,7 +21,7 @@ new Vue({
             } else {
                 ++this.currentLevel;
             }
-            fetch('http://localhost/getproducts.php?level=' + this.currentLevel + "&category=" + product.category_name)
+            fetch('http://localhost:8080/backend/getproducts.php?level=' + this.currentLevel + "&category=" + product.category_name)
                 .then(response => response.json())
                 .then(result => {
                     this.products = result;
