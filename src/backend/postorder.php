@@ -34,5 +34,5 @@ if (!$order->customer || !$order->products) {
     $query->close();
 
     http_response_code(200);
-    echo "Order placed";
+    echo json_encode(array("message" => "Order placed"));
 }

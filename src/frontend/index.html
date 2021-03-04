@@ -8,13 +8,19 @@
 </head>
 
 <body>
+    <style>
+        .selected {
+            color: red;
+        }
+    </style>
     <div id="app">
         <button @click="firstProducts()">Reset selection</button>
         <template v-for="product in products">
-            <p @click="getProducts(product)">{{ product.name}}, {{ product.category_name
-                }}
+            <p @click="getProducts(product)" :class="{'selected': isProductSelected(product.id)}">{{ product.name}}
             </p>
         </template>
+        <button v-if="!this.orderSent" @click="orderProducts()" name="order">Order selection</button>
+        <p v-if="this.orderSent">Order placed</p>
     </div>
     <script src="index.js"></script>
 </body>
