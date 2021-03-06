@@ -24,5 +24,6 @@ services:
     container_name: webshop-mysql
     volumes:
       - './db-scripts:/docker-entrypoint-initdb.d'
+      - './mycustom.cnf:/etc/mysql/conf.d/custom.cnf'
     environment:
       MYSQL_ROOT_PASSWORD: Losen123

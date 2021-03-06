@@ -3,7 +3,7 @@ new Vue({
         this.firstProducts()
     },
     data: {
-        backendURL: 'http://localhost/', // in docker compose: http://localhost:8080/backend/
+        backendURL: 'http://localhost:8080/backend/',
         currentLevel: 1,
         error: false,
         orderList: [],
@@ -14,6 +14,7 @@ new Vue({
     methods: {
         firstProducts() {
             this.orderList = [];
+            this.currentLevel = 1;
             fetch(this.backendURL + 'getproducts.php?level=' + 1)
                 .then(response => response.json())
                 .then(result => { this.products = result })

@@ -29,5 +29,3 @@ Note that you need Docker compose installed on your computer for this to work.
 To view the page use the URL:
 
 `http://localhost:8080/frontend/index.html`
-### TODO
-* Implement possibility to place order for selected products in frontend
